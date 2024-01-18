@@ -1,0 +1,39 @@
+.title {
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    font-weight: bolder;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 20px;
+}
+
+.people-square {
+    margin: 20px;
+}
+
+.people-square table {
+    width: 70%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.people-square th, .people-square td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    font-family: 'Poppins', sans-serif;
+}
+
+.people-square th {
+    background-color: #f2f2f2;
+    font-size: 25px;
+}
+
+.people-square td {
+    font-size: 18px;
+}
+
+.informations {
+    display: flex;
+    justify-content: space-around;
+}

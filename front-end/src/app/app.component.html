@@ -1,0 +1,48 @@
+<div class="people-square" *ngIf="!isAddPersonRouteActive && !isEditPersonRouteActive">
+  <h1 class="title">People</h1>
+  <div class="informations">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Work</th>
+          <th>Salary</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let person of people">
+          <td>{{ person.name }}</td>
+          <td>{{ person.age }}</td>
+          <td>{{ person.work }}</td>
+          <td>{{ person.salary }}</td>
+          <td>
+            <app-edit-delete 
+              [color]="editPersonColor" 
+              [text]="editPerson"
+              [routerLink]="'/edit-person/' + person.personId">
+            </app-edit-delete>
+          </td>
+          <td>
+            <app-edit-delete 
+              [color]="deletePersonColor" 
+              [text]="deletePerson" 
+              (deleteClick)="onDeletePerson(person.personId)">
+            </app-edit-delete>      
+          </td>
+        </tr>      
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<router-outlet *ngIf="isAddPersonRouteActive"></router-outlet>
+<router-outlet *ngIf="isEditPersonRouteActive"></router-outlet>
+
+<nav>
+  <app-first-component *ngIf="!isAddPersonRouteActive && !isEditPersonRouteActive" [text]="addPerson" [link]="addPersonLink"
+    (linkPressed)="onAddPersonLinkPressed($event)">
+  </app-first-component>
+</nav>
